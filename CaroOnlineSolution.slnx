@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Caro.WPF/Caro.WPF.csproj" Id="ae8e3c73-7bb0-4ef3-bfc9-7a360339a02f" />
+    <Project Path="Server/Server.csproj" />
+  </Folder>
+</Solution>
