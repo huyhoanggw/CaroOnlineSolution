@@ -74,7 +74,6 @@ namespace Caro.WPF
                     Maps.Add(cell);
                 }
             }
-            CurrentStatus = Status.X;
         }
 
         private async void ConnectToSignalR()
@@ -92,9 +91,11 @@ namespace Caro.WPF
             });
             connect.On<Status>("CheckWin", async message =>
             {
-                TurnStatus = message.ToString() + " Win";
-                MessageBox.Show(TurnStatus);
-                await ReloadMap();
+                if (MessageBox.Show(message + " Win", "Game Result", MessageBoxButton.OK) == MessageBoxResult.OK)
+                {
+
+                    await ReloadMap();
+                }
             });
             connect.On<string>("UserJoined", x =>
             {

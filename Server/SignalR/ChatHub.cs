@@ -47,6 +47,7 @@ namespace Server.SignalR
             if (result)
             {
                 await Clients.All.SendAsync("CheckWin", CurrentStatus == Status.X ? Status.O : Status.X);
+                await Clients.Client(Context.ConnectionId).SendAsync("NotifyStatus", Persions.IndexOf(Context.ConnectionId) == 0 ? "X" : "O");
             }
         }
         public async override Task OnDisconnectedAsync(Exception ex)
